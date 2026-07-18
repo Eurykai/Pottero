@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reviews — Potteroo</title>
+<meta name="description" content="Potteroo — pottery classes in Mount Claremont, Western Australia. Wheel throwing, hand-building and open studio sessions.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --bg: #FAF7F2;
+  --surface: #E4EFED;
+  --surface-2: #D6E8E5;
+  --text: #2A2622;
+  --text-dim: #6E665C;
+  --accent: #D81B60;
+  --accent-soft: #B0134F;
+  --accent-2: #3E8F89;
+  --star: #E3A73A;
+  --line: rgba(42,38,34,0.14);
+  --radius: 2px;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Work Sans', sans-serif;
+  font-weight:400;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+a{ color:inherit; text-decoration:none; }
+img,svg{ display:block; max-width:100%; }
+.wrap{ max-width:1120px; margin:0 auto; padding:0 32px; }
+.eyebrow{
+  font-family:'JetBrains Mono', monospace;
+  font-size:12px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--accent);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:18px;
+}
+.eyebrow::before{ content:""; width:22px; height:1px; background:var(--accent); display:inline-block; }
+h1,h2,h3{ font-family:'Fraunces', serif; font-weight:500; letter-spacing:-0.01em; }
+:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+
+.ridge{ width:100%; height:14px; opacity:0.55; }
+.ridge svg{ width:100%; height:100%; }
+
+header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(250,247,242,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 32px;
+  max-width:1120px; margin:0 auto;
+}
+.logo{
+  font-family:'Fraunces', serif; font-style:italic; font-weight:600;
+  font-size:22px; letter-spacing:0.01em;
+  display:flex; align-items:center; gap:10px;
+  color:var(--accent);
+}
+.logo .mark{ width:22px; height:22px; }
+.navlinks{ display:flex; gap:34px; font-size:14px; color:var(--text-dim); }
+.navlinks a{ padding-bottom:4px; border-bottom:1px solid transparent; }
+.navlinks a:hover{ color:var(--text); }
+.navlinks a.active{ color:var(--text); border-bottom-color:var(--accent); }
+.navcall{
+  font-family:'JetBrains Mono', monospace;
+  font-size:13px;
+  border:1px solid var(--line);
+  padding:9px 16px;
+  border-radius:var(--radius);
+  transition:border-color .2s, color .2s;
+  white-space:nowrap;
+}
+.navcall:hover{ border-color:var(--accent); color:var(--accent); }
+
+@media (max-width: 860px){ .navlinks{ display:none; } }
+
+/* ---- hero (home) ---- */
+.hero{ position:relative; padding:96px 0 80px; overflow:hidden; }
+.hero .wrap{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:40px; align-items:center; }
+.hero h1{ font-size:clamp(56px, 9vw, 118px); font-style:italic; line-height:0.94; color:var(--text); margin-bottom:22px; }
+.hero .sub{ font-size:clamp(17px, 2vw, 20px); color:var(--text-dim); max-width:440px; margin-bottom:32px; }
+@media (max-width: 860px){ .hero .wrap{ grid-template-columns:1fr; } .wheel-wrap{ order:-1; margin-bottom:20px; } .wheel{ width:220px; } }
+
+/* ---- page header (sub-pages) ---- */
+.pagehead{ padding:76px 0 56px; border-bottom:1px solid var(--line); }
+.pagehead h1{ font-size:clamp(40px, 6vw, 66px); font-style:italic; color:var(--text); }
+.pagehead .sub{ color:var(--text-dim); font-size:17px; max-width:520px; margin-top:14px; }
+
+.badges{ display:flex; flex-wrap:wrap; gap:12px; margin-bottom:36px; }
+.badge{
+  display:flex; align-items:center; gap:8px;
+  font-family:'JetBrains Mono', monospace;
+  font-size:13px;
+  border:1px solid var(--line);
+  padding:8px 14px;
+  border-radius:var(--radius);
+  color:var(--text-dim);
+}
+.badge .stars{ color:var(--star); letter-spacing:1px; }
+.badge .dot{ width:7px; height:7px; border-radius:50%; background:var(--accent-2); display:inline-block; }
+
+.cta-row{ display:flex; flex-wrap:wrap; gap:14px; }
+.btn{
+  font-family:'JetBrains Mono', monospace;
+  font-size:13px;
+  padding:14px 24px;
+  border-radius:var(--radius);
+  display:inline-flex; align-items:center; gap:10px;
+  transition:transform .18s ease, background .18s ease, border-color .18s ease;
+  cursor:pointer;
+  border:1px solid transparent;
+}
+.btn-primary{ background:var(--accent); color:#FFFFFF; }
+.btn-primary:hover{ transform:translateY(-2px); background:var(--accent-soft); }
+.btn-outline{ border:1px solid var(--line); color:var(--text); }
+.btn-outline:hover{ border-color:var(--accent); color:var(--accent); transform:translateY(-2px); }
+
+.wheel-wrap{ display:flex; justify-content:center; align-items:center; }
+.wheel{ width:min(360px, 80vw); animation:spin 90s linear infinite; transform-origin:center; }
+@keyframes spin{ to{ transform:rotate(360deg); } }
+
+section{ padding:88px 0; }
+.section-head{ max-width:640px; margin-bottom:56px; }
+.section-head h2{ font-size:clamp(32px, 4vw, 46px); color:var(--text); }
+
+.cards{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+.card{ background:var(--bg); padding:36px 30px; }
+.card .idx{ font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--accent); margin-bottom:22px; display:block; }
+.card h3{ font-size:22px; font-weight:500; margin-bottom:6px; color:var(--text); font-style:italic; }
+.card .price{ font-family:'Fraunces', serif; font-style:italic; font-size:28px; color:var(--accent-2); margin-bottom:14px; }
+.card p{ color:var(--text-dim); font-size:15px; }
+.cards-note{ font-family:'JetBrains Mono', monospace; font-size:13px; color:var(--text-dim); margin-top:22px; }
+@media (max-width: 860px){ .cards{ grid-template-columns:1fr; } }
+
+/* ---- link tiles (home -> other pages) ---- */
+.tiles{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+.tile{ background:var(--surface); padding:30px 28px; transition:background .18s ease; }
+.tile:hover{ background:var(--surface-2); }
+.tile .idx{ font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--accent-2); display:block; margin-bottom:16px; }
+.tile h3{ font-size:20px; font-style:italic; margin-bottom:8px; }
+.tile p{ color:var(--text-dim); font-size:14px; }
+@media (max-width: 860px){ .tiles{ grid-template-columns:1fr; } }
+
+.about-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
+.about-wrap p{ color:var(--text-dim); font-size:17px; margin-bottom:18px; max-width:480px; }
+.about-fact{
+  font-family:'JetBrains Mono', monospace; font-size:13px; color:var(--text-dim);
+  border-top:1px solid var(--line); padding:16px 0; display:flex; justify-content:space-between; gap:20px;
+}
+.about-fact span:first-child{ color:var(--accent); }
+.about-facts{ border-bottom:1px solid var(--line); }
+@media (max-width: 860px){ .about-wrap{ grid-template-columns:1fr; } }
+
+.reviews-row{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:40px; margin-bottom:56px; }
+.rating-big{ display:flex; align-items:baseline; gap:18px; }
+.rating-num{ font-family:'Fraunces', serif; font-style:italic; font-size:96px; color:var(--text); line-height:1; }
+.rating-meta .stars{ color:var(--star); font-size:20px; letter-spacing:3px; }
+.rating-meta p{ color:var(--text-dim); font-family:'JetBrains Mono', monospace; font-size:13px; margin-top:8px; }
+.review-note{ max-width:560px; color:var(--text-dim); font-size:16px; border-top:1px solid var(--line); padding-top:32px; }
+.review-cards{ display:grid; grid-template-columns:repeat(2, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:8px; }
+.review-card{ background:var(--bg); padding:32px 30px; display:flex; flex-direction:column; gap:18px; }
+.review-card .stars-sm{ color:var(--star); font-size:14px; letter-spacing:2px; }
+.review-card p.quote{ color:var(--text); font-size:16px; line-height:1.6; }
+.review-card .who{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; border-top:1px solid var(--line); padding-top:16px; }
+.review-card .who-name{ font-family:'Fraunces', serif; font-style:italic; font-size:17px; }
+.review-card .who-meta{ font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--text-dim); text-align:right; }
+@media (max-width: 860px){ .review-cards{ grid-template-columns:1fr; } }
+@media (max-width: 860px){ .rating-num{ font-size:72px; } }
+
+.visit-wrap{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; }
+.info-row{ font-family:'JetBrains Mono', monospace; font-size:14px; color:var(--text-dim); border-top:1px solid var(--line); padding:18px 0; }
+.info-row:last-child{ border-bottom:1px solid var(--line); }
+.info-row .label{ color:var(--accent); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; display:block; margin-bottom:8px; }
+.info-row a:hover{ color:var(--text); }
+.map-box{ border:1px solid var(--line); overflow:hidden; aspect-ratio:4/3.4; filter:grayscale(0.15) saturate(1.05); position:relative; display:block; }
+.map-box iframe{ width:100%; height:100%; border:0; }
+.map-box img{ width:100%; height:100%; object-fit:cover; display:block; }
+.map-box:hover img{ transform:scale(1.02); }
+.map-box img{ transition:transform .3s ease; }
+@media (max-width: 860px){ .visit-wrap{ grid-template-columns:1fr; } }
+
+footer{ padding:56px 0 46px; border-top:1px solid var(--line); }
+footer .wrap{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px; align-items:center; }
+footer .logo{ font-size:18px; }
+.foot-meta{ font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--text-dim); display:flex; gap:24px; flex-wrap:wrap; }
+
+@media (prefers-reduced-motion: reduce){ .wheel{ animation:none; } html{ scroll-behavior:auto; } }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a class="logo" href="index.html">
+      <svg class="mark" viewBox="0 0 24 24" fill="none">
+        <ellipse cx="12" cy="6" rx="8" ry="2.4" stroke="#D81B60" stroke-width="1.3"/>
+        <path d="M4 6C4 6 3.2 14 5.5 18.5C6.6 20.6 9 21.5 12 21.5C15 21.5 17.4 20.6 18.5 18.5C20.8 14 20 6 20 6" stroke="#D81B60" stroke-width="1.3"/>
+      </svg>
+      Potteroo
+    </a>
+    <div class="navlinks"><a href="index.html">Overview</a><a href="about.html">About</a><a href="reviews.html" class="active">Reviews</a><a href="visit.html">Visit</a></div>
+    <a class="navcall" href="tel:+61415187773">+61 415 187 773</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <div class="pagehead">
+    <div class="wrap">
+      <div class="eyebrow">Reviews</div>
+      <h1>Five stars, four reviews</h1>
+      <p class="sub">Straight from Potteroo's Google Business listing.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="reviews-row">
+        <div class="rating-big">
+          <span class="rating-num">5.0</span>
+          <div class="rating-meta">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>Based on 4 reviews on Google</p>
+          </div>
+        </div>
+      </div>
+      <div class="review-cards">
+        <div class="review-card">
+          <div class="stars-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="quote">&ldquo;Potteroo is the go to place for pottery! Lily is warm, generous and kind and a wonderful small business owner I love to support. Her gorgeous art is unique, unlike so much else out there. Her passion for potoroos and other native animals gives such a special vibe in potteroo palace. My personalised bowl for my puppy is one of a kind!&rdquo;</p>
+          <div class="who">
+            <span class="who-name">Amy Cunningham</span>
+            <span class="who-meta">Local Guide · 32 reviews · 70 photos<br>5 years ago</span>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="stars-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="quote">&ldquo;Fab place for pottery classes! Its small and friendly with quant classes for beginner potters.&rdquo;</p>
+          <div class="who">
+            <span class="who-name">Zoe Lyttle</span>
+            <span class="who-meta">1 review<br>5 years ago</span>
+          </div>
+        </div>
+      </div>
+      <p class="review-note">Two of Potteroo's four reviews, quoted as written. Two more, including one from Adam Walker, are on Google Maps.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="index.html">Potteroo</a>
+    <div class="foot-meta">
+      <span>Pottery Classes</span>
+      <span>Mount Claremont, WA</span>
+      <span>+61 415 187 773</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
