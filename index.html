@@ -50,14 +50,11 @@ img,svg{ display:block; max-width:100%; }
 h1,h2,h3{ font-family:'Fraunces', serif; font-weight:500; letter-spacing:-0.01em; }
 :focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
 
-.ridge{ width:100%; height:14px; opacity:0.55; }
-.ridge svg{ width:100%; height:100%; }
 
 header{
   position:sticky; top:0; z-index:50;
   background:rgba(250,247,242,0.92);
   backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line);
 }
 nav{
   display:flex; align-items:center; justify-content:space-between;
@@ -66,37 +63,36 @@ nav{
 }
 .logo{
   font-family:'Fraunces', serif; font-style:italic; font-weight:600;
-  font-size:22px; letter-spacing:0.01em;
+  font-size:30px; letter-spacing:0.01em;
   display:flex; align-items:center; gap:10px;
   color:var(--accent);
 }
-.logo .mark{ width:22px; height:22px; }
 .navlinks{ display:flex; gap:34px; font-size:14px; color:var(--text-dim); }
-.navlinks a{ padding-bottom:4px; border-bottom:1px solid transparent; }
+.navlinks a{ padding-bottom:4px; }
 .navlinks a:hover{ color:var(--text); }
-.navlinks a.active{ color:var(--text); border-bottom-color:var(--accent); }
+.navlinks a.active{ color:var(--accent); }
 .navcall{
   font-family:'JetBrains Mono', monospace;
   font-size:13px;
-  border:1px solid var(--line);
+  background:var(--surface);
   padding:9px 16px;
   border-radius:var(--radius);
-  transition:border-color .2s, color .2s;
+  transition:background .2s, color .2s;
   white-space:nowrap;
 }
-.navcall:hover{ border-color:var(--accent); color:var(--accent); }
+.navcall:hover{ background:var(--surface-2); color:var(--accent); }
 
 @media (max-width: 860px){ .navlinks{ display:none; } }
 
 /* ---- hero (home) ---- */
 .hero{ position:relative; padding:96px 0 80px; overflow:hidden; }
 .hero .wrap{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:40px; align-items:center; }
-.hero h1{ font-size:clamp(56px, 9vw, 118px); font-style:italic; line-height:0.94; color:var(--text); margin-bottom:22px; }
+.hero h1{ font-size:clamp(56px, 9vw, 118px); font-style:italic; font-weight:600; line-height:0.92; letter-spacing:-0.02em; color:var(--accent); margin-bottom:22px; }
 .hero .sub{ font-size:clamp(17px, 2vw, 20px); color:var(--text-dim); max-width:440px; margin-bottom:32px; }
 @media (max-width: 860px){ .hero .wrap{ grid-template-columns:1fr; } .wheel-wrap{ order:-1; margin-bottom:20px; } .wheel{ width:220px; } }
 
 /* ---- page header (sub-pages) ---- */
-.pagehead{ padding:76px 0 56px; border-bottom:1px solid var(--line); }
+.pagehead{ padding:76px 0 56px; }
 .pagehead h1{ font-size:clamp(40px, 6vw, 66px); font-style:italic; color:var(--text); }
 .pagehead .sub{ color:var(--text-dim); font-size:17px; max-width:520px; margin-top:14px; }
 
@@ -105,7 +101,7 @@ nav{
   display:flex; align-items:center; gap:8px;
   font-family:'JetBrains Mono', monospace;
   font-size:13px;
-  border:1px solid var(--line);
+  background:var(--surface);
   padding:8px 14px;
   border-radius:var(--radius);
   color:var(--text-dim);
@@ -120,24 +116,23 @@ nav{
   padding:14px 24px;
   border-radius:var(--radius);
   display:inline-flex; align-items:center; gap:10px;
-  transition:transform .18s ease, background .18s ease, border-color .18s ease;
+  transition:transform .18s ease, background .18s ease;
   cursor:pointer;
-  border:1px solid transparent;
 }
 .btn-primary{ background:var(--accent); color:#FFFFFF; }
 .btn-primary:hover{ transform:translateY(-2px); background:var(--accent-soft); }
-.btn-outline{ border:1px solid var(--line); color:var(--text); }
-.btn-outline:hover{ border-color:var(--accent); color:var(--accent); transform:translateY(-2px); }
+.btn-outline{ background:var(--surface); color:var(--text); }
+.btn-outline:hover{ background:var(--surface-2); color:var(--accent); transform:translateY(-2px); }
 
 .wheel-wrap{ display:flex; justify-content:center; align-items:center; }
-.wheel{ width:min(360px, 80vw); animation:spin 90s linear infinite; transform-origin:center; }
-@keyframes spin{ to{ transform:rotate(360deg); } }
+.wheel{ width:min(380px, 80vw); animation:float 6s ease-in-out infinite; }
+@keyframes float{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-10px); } }
 
 section{ padding:88px 0; }
 .section-head{ max-width:640px; margin-bottom:56px; }
 .section-head h2{ font-size:clamp(32px, 4vw, 46px); color:var(--text); }
 
-.cards{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+.cards{ display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; }
 .card{ background:var(--bg); padding:36px 30px; }
 .card .idx{ font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--accent); margin-bottom:22px; display:block; }
 .card h3{ font-size:22px; font-weight:500; margin-bottom:6px; color:var(--text); font-style:italic; }
@@ -147,7 +142,7 @@ section{ padding:88px 0; }
 @media (max-width: 860px){ .cards{ grid-template-columns:1fr; } }
 
 /* ---- link tiles (home -> other pages) ---- */
-.tiles{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+.tiles{ display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; }
 .tile{ background:var(--surface); padding:30px 28px; transition:background .18s ease; }
 .tile:hover{ background:var(--surface-2); }
 .tile .idx{ font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--accent-2); display:block; margin-bottom:16px; }
@@ -159,10 +154,10 @@ section{ padding:88px 0; }
 .about-wrap p{ color:var(--text-dim); font-size:17px; margin-bottom:18px; max-width:480px; }
 .about-fact{
   font-family:'JetBrains Mono', monospace; font-size:13px; color:var(--text-dim);
-  border-top:1px solid var(--line); padding:16px 0; display:flex; justify-content:space-between; gap:20px;
+  padding:16px 0; display:flex; justify-content:space-between; gap:20px;
 }
 .about-fact span:first-child{ color:var(--accent); }
-.about-facts{ border-bottom:1px solid var(--line); }
+.about-facts{ }
 @media (max-width: 860px){ .about-wrap{ grid-template-columns:1fr; } }
 
 .reviews-row{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:40px; margin-bottom:56px; }
@@ -170,32 +165,32 @@ section{ padding:88px 0; }
 .rating-num{ font-family:'Fraunces', serif; font-style:italic; font-size:96px; color:var(--text); line-height:1; }
 .rating-meta .stars{ color:var(--star); font-size:20px; letter-spacing:3px; }
 .rating-meta p{ color:var(--text-dim); font-family:'JetBrains Mono', monospace; font-size:13px; margin-top:8px; }
-.review-note{ max-width:560px; color:var(--text-dim); font-size:16px; border-top:1px solid var(--line); padding-top:32px; }
-.review-cards{ display:grid; grid-template-columns:repeat(2, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:8px; }
+.review-note{ max-width:560px; color:var(--text-dim); font-size:16px; padding-top:16px; }
+.review-cards{ display:grid; grid-template-columns:repeat(2, 1fr); gap:28px; margin-top:8px; }
 .review-card{ background:var(--bg); padding:32px 30px; display:flex; flex-direction:column; gap:18px; }
 .review-card .stars-sm{ color:var(--star); font-size:14px; letter-spacing:2px; }
 .review-card p.quote{ color:var(--text); font-size:16px; line-height:1.6; }
-.review-card .who{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; border-top:1px solid var(--line); padding-top:16px; }
+.review-card .who{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding-top:16px; }
 .review-card .who-name{ font-family:'Fraunces', serif; font-style:italic; font-size:17px; }
 .review-card .who-meta{ font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--text-dim); text-align:right; }
 @media (max-width: 860px){ .review-cards{ grid-template-columns:1fr; } }
 @media (max-width: 860px){ .rating-num{ font-size:72px; } }
 
 .visit-wrap{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; }
-.info-row{ font-family:'JetBrains Mono', monospace; font-size:14px; color:var(--text-dim); border-top:1px solid var(--line); padding:18px 0; }
-.info-row:last-child{ border-bottom:1px solid var(--line); }
+.info-row{ font-family:'JetBrains Mono', monospace; font-size:14px; color:var(--text-dim); padding:18px 0; }
+.info-row:last-child{ }
 .info-row .label{ color:var(--accent); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; display:block; margin-bottom:8px; }
 .info-row a:hover{ color:var(--text); }
-.map-box{ border:1px solid var(--line); overflow:hidden; aspect-ratio:4/3.4; filter:grayscale(0.15) saturate(1.05); position:relative; display:block; }
+.map-box{ overflow:hidden; aspect-ratio:4/3.4; filter:grayscale(0.15) saturate(1.05); position:relative; display:block; border-radius:var(--radius); }
 .map-box iframe{ width:100%; height:100%; border:0; }
 .map-box img{ width:100%; height:100%; object-fit:cover; display:block; }
 .map-box:hover img{ transform:scale(1.02); }
 .map-box img{ transition:transform .3s ease; }
 @media (max-width: 860px){ .visit-wrap{ grid-template-columns:1fr; } }
 
-footer{ padding:56px 0 46px; border-top:1px solid var(--line); }
+footer{ padding:56px 0 46px; }
 footer .wrap{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px; align-items:center; }
-footer .logo{ font-size:18px; }
+footer .logo{ font-size:24px; }
 .foot-meta{ font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--text-dim); display:flex; gap:24px; flex-wrap:wrap; }
 
 @media (prefers-reduced-motion: reduce){ .wheel{ animation:none; } html{ scroll-behavior:auto; } }
@@ -205,13 +200,7 @@ footer .logo{ font-size:18px; }
 
 <header>
   <nav>
-    <a class="logo" href="index.html">
-      <svg class="mark" viewBox="0 0 24 24" fill="none">
-        <ellipse cx="12" cy="6" rx="8" ry="2.4" stroke="#D81B60" stroke-width="1.3"/>
-        <path d="M4 6C4 6 3.2 14 5.5 18.5C6.6 20.6 9 21.5 12 21.5C15 21.5 17.4 20.6 18.5 18.5C20.8 14 20 6 20 6" stroke="#D81B60" stroke-width="1.3"/>
-      </svg>
-      Potteroo
-    </a>
+    <a class="logo" href="index.html">Potteroo</a>
     <div class="navlinks"><a href="index.html" class="active">Overview</a><a href="about.html">About</a><a href="reviews.html">Reviews</a><a href="visit.html">Visit</a></div>
     <a class="navcall" href="tel:+61415187773">+61 415 187 773</a>
   </nav>
@@ -227,28 +216,36 @@ footer .logo{ font-size:18px; }
         <p class="sub">Pottery classes for every kind of hands — wheel-thrown, hand-built, and everything shaped in between.</p>
         <div class="badges">
           <div class="badge"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0 &nbsp;&middot;&nbsp; 4 Google reviews</div>
-          <div class="badge"><span class="dot"></span> Closed now &nbsp;&middot;&nbsp; Opens 10 AM</div>
-          <div class="badge">Gift vouchers available</div>
         </div>
         <div class="cta-row">
           <a class="btn btn-primary" href="tel:+61415187773">Call +61 415 187 773</a>
         </div>
       </div>
       <div class="wheel-wrap">
-        <svg class="wheel" viewBox="0 0 300 300" fill="none">
-          <circle cx="150" cy="150" r="145" stroke="#CFE0DC" stroke-width="1.5"/>
-          <circle cx="150" cy="150" r="118" stroke="#B9CFC9" stroke-width="1"/>
-          <circle cx="150" cy="150" r="94" stroke="#D81B60" stroke-width="1.5"/>
-          <circle cx="150" cy="150" r="70" stroke="#B9CFC9" stroke-width="1"/>
-          <circle cx="150" cy="150" r="48" stroke="#3E8F89" stroke-width="1.5"/>
-          <circle cx="150" cy="150" r="26" stroke="#B9CFC9" stroke-width="1"/>
-          <circle cx="150" cy="150" r="6" fill="#2A2622"/>
+        <svg class="wheel" viewBox="0 0 320 260" fill="none">
+          <ellipse cx="160" cy="175" rx="150" ry="120" fill="#E4EFED"/>
+
+          <!-- vase -->
+          <circle cx="80" cy="55" r="4" fill="#D81B60"/>
+          <ellipse cx="80" cy="75" rx="14" ry="9" fill="#2E6E69"/>
+          <ellipse cx="80" cy="150" rx="46" ry="62" fill="#3E8F89"/>
+          <ellipse cx="80" cy="222" rx="40" ry="8" fill="#3E8F89" opacity="0.25"/>
+
+          <!-- bowl -->
+          <ellipse cx="185" cy="222" rx="55" ry="8" fill="#D81B60" opacity="0.2"/>
+          <ellipse cx="185" cy="180" rx="62" ry="34" fill="#D81B60"/>
+          <ellipse cx="185" cy="163" rx="50" ry="16" fill="#B0134F"/>
+
+          <!-- cup -->
+          <ellipse cx="271" cy="222" rx="28" ry="6" fill="#B9CFC9" opacity="0.35"/>
+          <rect x="248" y="150" width="46" height="60" rx="20" fill="#D6E8E5"/>
+          <ellipse cx="271" cy="150" rx="23" ry="8" fill="#B9CFC9"/>
+          <circle cx="300" cy="180" r="14" fill="#D6E8E5"/>
+          <circle cx="300" cy="180" r="7" fill="#FAF7F2"/>
         </svg>
       </div>
     </div>
   </section>
-
-  <div class="ridge"><svg viewBox="0 0 1200 14" preserveAspectRatio="none"><path d="M0 7 Q 30 1, 60 7 T 120 7 T 180 7 T 240 7 T 300 7 T 360 7 T 420 7 T 480 7 T 540 7 T 600 7 T 660 7 T 720 7 T 780 7 T 840 7 T 900 7 T 960 7 T 1020 7 T 1080 7 T 1140 7 T 1200 7" stroke="#D81B60" stroke-width="1" fill="none"/></svg></div>
 
   <section id="overview">
     <div class="wrap">
@@ -270,14 +267,11 @@ footer .logo{ font-size:18px; }
         <div class="card">
           <span class="idx">Bring your own</span>
           <h3>Kiln Hire</h3>
-          <p>Got pieces ready to fire? Email Lily at lily@potteroo.com.au to arrange kiln hire.</p>
+          <p>Got pieces ready to fire? Kiln hire is available separately — just get in touch.</p>
         </div>
       </div>
-      <p class="cards-note">Pottery vouchers available too — a ready-made gift for someone else's hands.</p>
     </div>
   </section>
-
-  <div class="ridge"><svg viewBox="0 0 1200 14" preserveAspectRatio="none"><path d="M0 7 Q 30 13, 60 7 T 120 7 T 180 7 T 240 7 T 300 7 T 360 7 T 420 7 T 480 7 T 540 7 T 600 7 T 660 7 T 720 7 T 780 7 T 840 7 T 900 7 T 960 7 T 1020 7 T 1080 7 T 1140 7 T 1200 7" stroke="#3E8F89" stroke-width="1" fill="none"/></svg></div>
 
   <section>
     <div class="wrap">
@@ -288,12 +282,12 @@ footer .logo{ font-size:18px; }
       <div class="tiles">
         <a class="tile" href="about.html">
           <span class="idx">01 · About</span>
-          <h3>Inside Moerlina School</h3>
+          <h3>Inside the studio</h3>
           <p>Where the studio sits, and what a session looks like.</p>
         </a>
         <a class="tile" href="reviews.html">
           <span class="idx">02 · Reviews</span>
-          <h3>5.0 on Google</h3>
+          <h3>A five-star rating</h3>
           <p>What the four reviews on record say.</p>
         </a>
         <a class="tile" href="visit.html">
