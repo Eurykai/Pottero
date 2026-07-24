@@ -171,6 +171,7 @@ section{ padding:88px 0; }
 .review-note{ max-width:560px; color:var(--text-dim); font-size:16px; padding-top:16px; }
 .review-cards{ display:grid; grid-template-columns:repeat(2, 1fr); gap:28px; margin-top:8px; }
 .review-card{ background:var(--bg); padding:32px 30px; display:flex; flex-direction:column; gap:18px; }
+.review-card.compact{ justify-content:space-between; }
 .review-card .stars-sm{ color:var(--star); font-size:14px; letter-spacing:2px; }
 .review-card p.quote{ color:var(--text); font-size:16px; line-height:1.6; }
 .review-card .who{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding-top:16px; }
@@ -221,7 +222,7 @@ footer{ padding:64px 0 40px; background:var(--surface); margin-top:20px; }
   <div class="pagehead">
     <div class="wrap">
      
-      <h1>Five stars, four reviews</h1>
+      <h1>Five stars, six reviews</h1>
       <p class="sub">What customers say about their time at Potteroo.</p>
     </div>
   </div>
@@ -233,7 +234,7 @@ footer{ padding:64px 0 40px; background:var(--surface); margin-top:20px; }
           <span class="rating-num">5.0</span>
           <div class="rating-meta">
             <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p>Based on 4 customer reviews</p>
+            <p>Based on 6 customer reviews</p>
           </div>
         </div>
       </div>
@@ -252,6 +253,20 @@ footer{ padding:64px 0 40px; background:var(--surface); margin-top:20px; }
           <div class="who">
             <span class="who-name">Zoe Lyttle</span>
             <span class="who-meta">1 review<br>5 years ago</span>
+          </div>
+        </div>
+        <div class="review-card compact">
+          <div class="stars-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="who">
+            <span class="who-name">Adam Walker</span>
+            <span class="who-meta">6 reviews<br>5 years ago</span>
+          </div>
+        </div>
+        <div class="review-card compact">
+          <div class="stars-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="who">
+            <span class="who-name">Angela Tsai</span>
+            <span class="who-meta">1 review<br>8 years ago</span>
           </div>
         </div>
       </div>
