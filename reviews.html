@@ -152,13 +152,16 @@ section{ padding:88px 0; }
 
 .about-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
 .about-wrap p{ color:var(--text-dim); font-size:17px; margin-bottom:18px; max-width:480px; }
+.about-facts{ max-width:480px; border-top:1px solid var(--line); }
 .about-fact{
   font-family:'JetBrains Mono', monospace; font-size:13px; color:var(--text-dim);
-  padding:16px 0; display:flex; justify-content:space-between; gap:20px;
+  display:grid; grid-template-columns:120px 1fr; column-gap:20px; align-items:baseline;
+  padding:18px 0;
+  border-bottom:1px solid var(--line);
 }
 .about-fact span:first-child{ color:var(--accent); }
-.about-facts{ }
-@media (max-width: 860px){ .about-wrap{ grid-template-columns:1fr; } }
+.about-fact span:last-child{ color:var(--text); text-align:right; }
+@media (max-width: 860px){ .about-wrap{ grid-template-columns:1fr; } .about-facts{ margin-top:8px; } }
 
 .reviews-row{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:40px; margin-bottom:56px; }
 .rating-big{ display:flex; align-items:baseline; gap:18px; }
@@ -245,14 +248,14 @@ footer{ padding:64px 0 40px; background:var(--surface); margin-top:20px; }
         </div>
         <div class="review-card">
           <div class="stars-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="quote">Zoe describes Potteroo as a small, friendly studio with classes well suited to beginners.</p>
+          <p class="quote">Zoe found the studio small and welcoming, and thought the classes were pitched just right for someone picking up a wheel for the first time.</p>
           <div class="who">
             <span class="who-name">Zoe Lyttle</span>
             <span class="who-meta">1 review<br>5 years ago</span>
           </div>
         </div>
       </div>
-     
+    </div>
   </section>
 
 </main>
@@ -285,4 +288,3 @@ footer{ padding:64px 0 40px; background:var(--surface); margin-top:20px; }
  
 </body>
 </html>
- 
